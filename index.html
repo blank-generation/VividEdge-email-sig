@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Footer</title>
+</head>
+
+<body>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+
+    <div x-data="{ name: '', role: '', phone: '', email: '', addy:'' }" id="pg-wrap">
+
+        <div class="formboi">
+            <!-- <form action="" class="formboi"> -->
+            <label for="name">Name</label>
+            <input type="text" name="name" id="em_name" x-model="name">
+
+            <label for="role">Designation</label>
+            <input type="text" name="role" id="em_role" x-model="role">
+
+            <label for="phone">Contact Number</label>
+            <input type="text" name="phone" id="em_phone" x-model="phone">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="em_email" x-model="email">
+
+            <label for="addy">Address</label>
+            <input type="text" name="addy" id="em_addy" x-model="addy">
+
+            <!-- </form> -->
+
+
+            <button @click='copyFooter()'>Copy to Clipboard</button>
+
+        </div>
+
+
+        <div id="footer-wraper">
+            <table style=" font-family: 'Open Sans', sans-serif;
+    background: url(https://github.com/meldweare/vividedge-res/blob/main/BG-01.jpg?raw=true);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 3em;
+    border-radius: 15px;
+    text-align: left;
+    max-width: 800px;
+    ">
+                <tbody>
+                    <tr>
+
+                        <td>
+
+                            <div id="e_name" style="font-size: 2rem;font-weight: 700;" x-text="name"> Bhaskar Dasari
+                            </div>
+                            <div id="e_role" style="font-weight: 500; font-size: 1.3rem; text-transform: uppercase;"
+                                x-text="role">BUSINESS TRANSFORMATION ADVISOR
+                            </div>
+
+                            <div class="cf" style=" padding-top: 1.25em;font-size: 1rem; line-height: 2.5;">
+
+
+                                <img src="https://github.com/meldweare/vividedge-res/blob/main/Icons/Phone.png?raw=true"
+                                    alt="" style="max-width: 2em;
+                                vertical-align: middle;
+                               ">
+                                <span x-text="phone"> 770-335-5265(c) | 703-229-8658(f)</span>
+
+                                <br />
+                                <img src="https://github.com/meldweare/vividedge-res/blob/main/Icons/Email.png?raw=true"
+                                    alt="" style="max-width: 2em;
+                                vertical-align: middle;
+                               ">
+                                <a rel="nofollow" style='text-decoration:none; color:white'
+                                    x-text="email">bdasari@vivid-edge.com</a>
+
+                                <br />
+                                <img src="https://github.com/meldweare/vividedge-res/blob/main/Icons/Location.png?raw=true"
+                                    alt="" style="max-width: 2em;
+                            vertical-align: middle;
+                           ">
+                                <span x-text="addy"> 11710 Plaza America Drive STE 2000 Reston, VA – 20190 </span>
+                            </div>
+
+
+
+                            <div style="text-align: right;">
+                                <a href="https://www.vivid-edge.com/" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/meldweare/vividedge-res/main/Logo.png"
+                                        id="logo" alt="logo" style="width: 35%; min-width: 250px; padding-top: 1.5em;">
+                                </a>
+                            </div>
+
+                            <div id="web_link" style="margin-right: 1em; 
+                            text-align: right;
+                            text-decoration: none !important;
+                            font-size: 1.2em;
+                            font-weight: 700;
+                            ">
+                                <a href="https://www.vivid-edge.com/" target="_blank"
+                                    style="color: white;">www.vivid-edge.com</a>
+                            </div>
+
+
+
+
+                        </td>
+                    </tr>
+
+
+                </tbody>
+
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        function copyFooter() {
+            let copyText = document.getElementById("footer-wraper");
+            let range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().addRange(range);
+
+            document.execCommand("copy");
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        #pg-wrap {
+            display: flex;
+            padding: 3em;
+        }
+
+        .formboi {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            /* flex-grow: 1; */
+            padding-right: 3em;
+        }
+    </style>
+</body>
+
+</html>
